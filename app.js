@@ -1,14 +1,19 @@
-const express = require("express")
+const express = require('express')
 const app = express()
 
-const port = 3000
+const tasks = require('./routes/tasks')
 
-app.use(express.static("public"))
+app.use(express.json())
 
-app.get("/about", (req, res)=>{
-    console.log("working")
-    res.end()
+
+app.get("/hello", (req, res)=>{
+    res.send("hello Task Manger")
 })
 
+
+app.use('/api/v1/tasks', tasks)
+
+
+const port = 3000
 
 app.listen(port, () => {console.log(`Example app listening on port ${port}`)})
