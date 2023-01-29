@@ -1,15 +1,15 @@
 
 
 const getAllTasks = (req, res) =>{
-    res.send("all items from controller")
+    res.send("get all tasks")
 }
 
 const createTask = (req, res) =>{
-    res.send("create Task")
+    res.json(req.body)
 }
 
 const getTask = (req, res) =>{
-    res.send("get singel task")
+    res.json({id: req.params.id})
 }
 
 const updateTask = (req, res) =>{
